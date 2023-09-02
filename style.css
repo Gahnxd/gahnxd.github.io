@@ -4,10 +4,51 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
 }
 
 body{
-    background: #0a4366;
+    background: #264a79;
     color: #ffffff;
+    font-family: system-ui,Helvetica,Arial,sans-serif
+}
+
+#container {
+    width: 90%;
+    max-width: 800px;
+    margin: 4rem auto
+}
+
+h1{
+    font-weight: 800;
+    font-size: 3rem;
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 2rem;
+}
+
+.profile {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 5rem;
+    margin-right: 1.5rem;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 150%;
+    margin: 1.25rem 0;
+    font-weight: 250;
+}
+
+a {
+    color: rgb(231, 227, 0);
+    text-decoration: none
+}
+
+a:hover,a:active {
+    color: rgb(248, 246, 137);
+    text-decoration: underline
 }
