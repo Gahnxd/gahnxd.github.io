@@ -15,7 +15,7 @@ body{
 
 #container {
     width: 90%;
-    max-width: 800px;
+    max-width: 900px;
     margin: 4rem auto
 }
 
@@ -34,11 +34,45 @@ h3 {
     font-size: 1.5rem;
 }
 
+h3.education{
+    padding-left: 50px;
+}
+
 .profile {
     width: 10rem;
     height: 10rem;
     border-radius: 5rem;
     margin-right: 1.5rem;
+}
+
+ul {
+    padding: 5mm;
+    overflow: hidden;
+}
+
+ul.contacts{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    list-style-type: none;
+}
+
+ul.skills{
+    padding-top: 0;
+    padding-left: 45px;
+}
+
+
+li {
+    font-size: 1.08rem;
+    line-height: 50%;
+    margin: 1.25rem 0;
+    font-weight: 250;
+    padding: 10px
+}
+
+li.contacts{
+    float: left;
 }
 
 p {
