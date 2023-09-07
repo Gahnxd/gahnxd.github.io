@@ -26,17 +26,15 @@ h1{
 }
 
 h2 {
-    font-weight: 300;
+    font-weight: 500;
     font-size: 2rem;
-}
+    margin-top: 2rem;
+    margin-bottom: 0cm;}
 
 h3 {
-    font-weight: 300;
+    font-weight: 370;
     font-size: 1.5rem;
-}
-
-h3.education{
-    padding-left: 50px;
+    margin: 0.5rem;
 }
 
 .profile {
@@ -63,17 +61,38 @@ ul.skills{
     padding-left: 45px;
 }
 
+ul.proj-intro{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    padding-left: 10px;
+}
+
+ul.proj-main{
+    padding-top: 0;
+    padding-left: 45px;
+}
 
 li {
     font-size: 1.08rem;
     line-height: 120%;
-    margin: 1.25rem 0;
+    margin: 0.4rem 0;
     font-weight: 250;
     padding: 10px
 }
 
 li.contacts{
     float: left;
+}
+
+li.proj-intro{
+    margin: 5px;
+    padding: 0px;
+}
+
+li.proj-main{
+    margin: 10px;
+    padding: 5px;
 }
 
 p {
