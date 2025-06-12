@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Gahn W</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .contact-section {
+            padding: 100px 0 60px;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+        
+        .contact-info {
+            padding: 30px;
+            background-color: #f8fafc;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .contact-details {
+            list-style: none;
+        }
+        
+        .contact-details li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .contact-text {
+            flex: 1;
+        }
+        
+        .contact-text h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        
+        .contact-text p, .contact-text a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .contact-text a:hover {
+            color: var(--primary-color);
+        }
+        
+        .social-box {
+            margin-top: 30px;
+        }
+        
+        .social-box h3 {
+            margin-bottom: 15px;
+        }
+        
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        
+        .social-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            background-color: white;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+        
+        .social-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(126, 156, 216, 0.3);
+            border: 2px solid var(--primary-color);
+            background-color: rgba(126, 156, 216, 0.05);
+        }
+        
+        .social-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .social-name {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+        
+        /* Form Styling */
+        .contact-form {
+            padding: 30px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-form h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            font-size: 1rem;
+        }
+        
+        .form-message {
+            margin-top: 20px;
+            padding: 10px 15px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            display: none;
+        }
+        
+        .success-message {
+            background-color: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+        
+        .error-message {
+            background-color: #fee2e2;
+            color: #b91c1c;
+            border: 1px solid #fecaca;
+        }
+        
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="index.html"><img src="assets/images/logo.png" alt="GW Logo" class="logo-img"></a>
+                </div>
+                <div class="menu-toggle">
+                    <div class="hamburger"></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Get In Touch</h2>
+                    <div class="underline"></div>
+                </div>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <ul class="contact-details">
+                            <li>
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Email</h4>
+                                    <a href="mailto:gahnxd@gmail.com">gahnxd@gmail.com</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Phone</h4>
+                                    <p>(858) 666-5628</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Location</h4>
+                                    <p>San Diego, California</p>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <div class="social-box">
+                            <h3>Connect With Me</h3>
+                            <div class="social-grid">
+                                <a href="https://github.com/gahnxd" class="social-item" aria-label="GitHub - gahnxd" title="GitHub - gahnxd" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github social-icon"></i>
+                                    <span class="social-name">GitHub</span>
+                                </a>
+                                <a href="https://www.linkedin.com/in/gahn-wuwong" class="social-item" aria-label="LinkedIn - Gahn Wuwong" title="LinkedIn - Gahn Wuwong" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-linkedin social-icon"></i>
+                                    <span class="social-name">LinkedIn</span>
+                                </a>
+                                <a href="https://x.com/gwuwong" class="social-item" aria-label="X - @gwuwong" title="X - @gwuwong" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-x-twitter social-icon"></i>
+                                    <span class="social-name">X</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Send Me a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" id="subject" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea id="message" class="form-control" required></textarea>
+                            </div>
+                            <button type="submit" class="btn primary-btn submit-btn">Send Message</button>
+                        </form>
+                        <div class="form-message success-message" id="successMessage">
+                            Your message has been sent successfully!
+                        </div>
+                        <div class="form-message error-message" id="errorMessage">
+                            There was an error sending your message. Please try again.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html"><img src="assets/images/logo.png" alt="GW Logo" class="logo-img"></a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/gahnxd" class="social-link" aria-label="GitHub - gahnxd" title="GitHub - gahnxd" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/gahn-wuwong" class="social-link" aria-label="LinkedIn - Gahn Wuwong" title="LinkedIn - Gahn Wuwong" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/gwuwong" class="social-link" aria-label="X - @gwuwong" title="X - @gwuwong" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Gahn W. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactForm = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // In a real implementation, you would send the form data to a server
+                // For this demo, we'll just simulate a successful submission
+                
+                // Hide any existing messages
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+                
+                // Simulate form processing
+                setTimeout(() => {
+                    // Show success message
+                    successMessage.style.display = 'block';
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>

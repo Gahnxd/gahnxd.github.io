@@ -1,33 +1,140 @@
 <!DOCTYPE html>
-<html lang="en" class="home">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gahn Wuwong: Personal Site and Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="global.js" type="module"></script>
-    <script src="index.js" type="module" defer></script>
+    <title>Gahn W | Personal Website</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <div class="title_name">
-        <img src="images/IMG_1123.JPG" alt="photo of Gahn Wuwong">
-        <h1>Gahn Wuwong</h1>
-    </div>
-    <p>Hi, my name is Gahn. I am an ambitious, highly motivated undergraduate student at UC San Diego pursuing a degree
-        in data science with a minor in business analytics. I have a strong background in database management, data analytics, 
-        and data visualization. I am passionate about optimizing business processes and improving operational efficiency 
-        through data-driven decision-making.
-    </p>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
 
-    <h2>Latest Projects</h2>
-    <div class="projects"></div>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="index.html"><img src="assets/images/logo.png" alt="GW Logo" class="logo-img"></a>
+                </div>
+                <div class="menu-toggle">
+                    <div class="hamburger"></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <section>
-        <h2>My GitHub Stats</h2>
-        <div id="profile-stats"></div>
-    </section>
+    <main>
+        <section id="hero" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="animate-text">no thoughts, just <span class="highlight">gahn</span></h1>
+                    <p class="animate-text delay-1">I made a site. it's mostly vibes.</p>
+                    <div class="cta-buttons animate-text delay-2">
+                        <a href="projects.html" class="btn primary-btn">View My Work</a>
+                        <a href="contact.html" class="btn secondary-btn">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-preview">
+            <div class="container">
+                <div class="section-header">
+                    <h2>About Me</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Fourth year data science undergrad at UCSD. I do some coding, vibing, researching, and occasionally make AI things that work.</p>
+                        <a href="about.html" class="text-link">Learn more about me <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="skills">
+                        <div class="skill-category">
+                            <h3>Technical Skills</h3>
+                            <ul class="skill-list">
+                                <li class="skill-item"><span class="skill-name">AI Systems</span><div class="skill-bar"><div class="skill-progress" style="width: 65%"></div></div></li>
+                                <li class="skill-item"><span class="skill-name">Data Science</span><div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div></li>
+                                <li class="skill-item"><span class="skill-name">Backend Development</span><div class="skill-bar"><div class="skill-progress" style="width: 40%"></div></div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-preview">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Featured Projects</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="project-cards">
+                    <!-- Featured projects will be dynamically populated from projects.json -->
+                </div>
+                <div class="view-all">
+                    <a href="projects.html" class="btn primary-btn">View All Projects</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-preview">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Get In Touch</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="contact-content">
+                    <p>Questions? Ideas? Mild curiosity?</p>
+                    <a href="contact.html" class="btn primary-btn">Contact Me</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html"><img src="assets/images/logo.png" alt="GW Logo" class="logo-img"></a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/gahnxd" class="social-link" aria-label="GitHub - gahnxd" title="GitHub - gahnxd" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/gahn-wuwong" class="social-link" aria-label="LinkedIn - Gahn Wuwong" title="LinkedIn - Gahn Wuwong" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/gwuwong" class="social-link" aria-label="X - @gwuwong" title="X - @gwuwong" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Gahn W. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/three.r134.min.js"></script>
+    <script src="assets/js/vanta.net.min.js"></script>
+    <script>
+    VANTA.NET({
+        el: "#hero",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200,
+        minWidth: 200,
+        scale: 1,
+        scaleMobile: 1,
+        color: "#7e9cd8",
+        backgroundColor: "#2a2a37"
+    })
+    </script>
 </body>
-
 </html>

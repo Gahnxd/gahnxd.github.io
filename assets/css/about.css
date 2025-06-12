@@ -1,0 +1,53 @@
+/* About Page Two-Column Layout */
+.about-content {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.about-columns {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    width: 100%;
+}
+
+.about-left-column,
+.about-right-column {
+    flex: 1;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+/* Add some spacing and styling to sections */
+.about-text, .education, .experience, .skills {
+    margin-bottom: 30px;
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.skill-category {
+    margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-columns {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+    
+    .about-left-column {
+        grid-column: 1;
+        grid-row: 2; /* Move left column to second position on mobile */
+    }
+    
+    .about-right-column {
+        grid-column: 1;
+        grid-row: 1; /* Move right column to first position on mobile */
+    }
+}
