@@ -100,7 +100,6 @@
                             id="contactForm" 
                             action="https://formspree.io/f/xovwdyer"
                             method="POST"
-                            enctype="multipart/form-data"
                         >
                             <div class="form-group">
                                 <label for="name" class="form-label">Name</label>
@@ -151,89 +150,5 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const contactForm = document.getElementById('contactForm');
-            const successMessage = document.getElementById('successMessage');
-            const errorMessage = document.getElementById('errorMessage');
-            
-            // Add a hidden input for the referrer
-            const referrerInput = document.createElement('input');
-            referrerInput.type = 'hidden';
-            referrerInput.name = '_referrer';
-            referrerInput.value = window.location.href;
-            contactForm.appendChild(referrerInput);
-            
-            contactForm.addEventListener('submit', (e) => {
-                // Check if we're on localhost
-                const isLocalhost = window.location.hostname === 'localhost' || 
-                                   window.location.hostname === '127.0.0.1' ||
-                                   window.location.hostname === '::1';
-                
-                // For localhost testing, prevent default and show a special message
-                if (isLocalhost) {
-                    e.preventDefault();
-                    
-                    // Hide any existing messages
-                    successMessage.style.display = 'none';
-                    errorMessage.style.display = 'none';
-                    
-                    // Get form data
-                    const formData = new FormData(contactForm);
-                    console.log('Local testing detected. Form data would be sent to:', contactForm.action);
-                    console.log('Form data:', Object.fromEntries(formData));
-                    
-                    // Show success message for local testing
-                    successMessage.textContent = 'Local testing: Form submission simulated. On the live site, this will send data to Formspree.';
-                    successMessage.style.display = 'block';
-                    
-                    // Reset form
-                    contactForm.reset();
-                    
-                    // Hide success message after 8 seconds
-                    setTimeout(() => {
-                        successMessage.style.display = 'none';
-                        successMessage.textContent = 'Your message has been sent successfully!';
-                    }, 8000);
-                    return;
-                }
-                
-                // For production, let the form submit normally to Formspree
-                // but add AJAX handling for better UX
-                e.preventDefault();
-                
-                // Hide any existing messages
-                successMessage.style.display = 'none';
-                errorMessage.style.display = 'none';
-                
-                // Get form data
-                const formData = new FormData(contactForm);
-                
-                // Add AJAX submission for better UX
-                const xhr = new XMLHttpRequest();
-                xhr.open(contactForm.method, contactForm.action);
-                xhr.setRequestHeader('Accept', 'application/json');
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState !== XMLHttpRequest.DONE) return;
-                    if (xhr.status === 200) {
-                        // Success
-                        contactForm.reset();
-                        successMessage.style.display = 'block';
-                        setTimeout(() => {
-                            successMessage.style.display = 'none';
-                        }, 5000);
-                    } else {
-                        // Error
-                        errorMessage.style.display = 'block';
-                        console.error('Form submission error:', xhr.status, xhr.statusText);
-                        setTimeout(() => {
-                            errorMessage.style.display = 'none';
-                        }, 5000);
-                    }
-                };
-                xhr.send(formData);
-            });
-        });
-    </script>
 </body>
 </html>
