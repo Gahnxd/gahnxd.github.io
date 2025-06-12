@@ -159,15 +159,53 @@
             contactForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 
-                // In a real implementation, you would send the form data to a server
-                // For this demo, we'll just simulate a successful submission
-                
                 // Hide any existing messages
                 successMessage.style.display = 'none';
                 errorMessage.style.display = 'none';
                 
-                // Simulate form processing
-                setTimeout(() => {
+                // Check if we're on localhost
+                const isLocalhost = window.location.hostname === 'localhost' || 
+                                   window.location.hostname === '127.0.0.1' ||
+                                   window.location.hostname === '::1';
+                
+                // Get form data
+                const formData = new FormData(contactForm);
+                
+                // For localhost testing, show a special message
+                if (isLocalhost) {
+                    console.log('Local testing detected. Form data would be sent to:', contactForm.action);
+                    console.log('Form data:', Object.fromEntries(formData));
+                    
+                    // Show success message for local testing
+                    successMessage.textContent = 'Local testing: Form submission simulated. On the live site, this will send data to Formspree.';
+                    successMessage.style.display = 'block';
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Hide success message after 8 seconds
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                        successMessage.textContent = 'Your message has been sent successfully!';
+                    }, 8000);
+                    return;
+                }
+                
+                // Submit form to Formspree (only runs on non-localhost)
+                fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('Network response was not ok.');
+                })
+                .then(data => {
                     // Show success message
                     successMessage.style.display = 'block';
                     
@@ -178,7 +216,17 @@
                     setTimeout(() => {
                         successMessage.style.display = 'none';
                     }, 5000);
-                }, 1000);
+                })
+                .catch(error => {
+                    // Show error message
+                    errorMessage.style.display = 'block';
+                    console.error('Error:', error);
+                    
+                    // Hide error message after 5 seconds
+                    setTimeout(() => {
+                        errorMessage.style.display = 'none';
+                    }, 5000);
+                });
             });
         });
     </script>
