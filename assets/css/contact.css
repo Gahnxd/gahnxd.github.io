@@ -11,7 +11,7 @@
 
 .contact-info {
     padding: 30px;
-    background-color: #f8fafc;
+    background-color: white;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
 }
