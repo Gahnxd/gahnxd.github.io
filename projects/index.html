@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Gahn W</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/projects.css">
+    <link rel="stylesheet" href="../assets/css/projects.css">
 </head>
 <body>
     <div class="cursor"></div>
@@ -19,16 +19,16 @@
         <div class="container">
             <nav>
                 <div class="logo">
-                    <a href="index.html"><img src="assets/images/logo.png" alt="GW Logo" class="logo-img"></a>
+                    <a href="../"><img src="../assets/images/logo.png" alt="GW Logo" class="logo-img"></a>
                 </div>
                 <div class="menu-toggle">
                     <div class="hamburger"></div>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="projects.html" class="active">Projects</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="../">Home</a></li>
+                    <li><a href="../about">About</a></li>
+                    <li><a href="../projects" class="active">Projects</a></li>
+                    <li><a href="../contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -43,10 +43,7 @@
                 </div>
                 
                 <div class="project-filters">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="web">Web Development</button>
-                    <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
-                    <button class="filter-btn" data-filter="data">Data Science</button>
+                    <!-- Button filters will be dynamically loaded from projects.json -->
                 </div>
                 
                 <div class="projects-grid">
@@ -60,7 +57,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <a href="index.html"><img src="assets/images/logo.png" alt="GW Logo" class="logo-img"></a>
+                    <a href="../"><img src="../assets/images/logo.png" alt="GW Logo" class="logo-img"></a>
                 </div>
                 <div class="social-links">
                     <a href="https://github.com/gahnxd" class="social-link" aria-label="GitHub - gahnxd" title="GitHub - gahnxd" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
@@ -74,7 +71,7 @@
         </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
     <script>
         // Project filtering
         document.addEventListener('DOMContentLoaded', () => {

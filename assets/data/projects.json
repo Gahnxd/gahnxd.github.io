@@ -5,7 +5,7 @@
       "title": "Netwrxk",
       "description": "Professor search engine using AI matching. Build our own data scraping algorithm.",
       "category": "AI Systems",
-      "image": "./assets/images/netwrxk.png",
+      "image": "../assets/images/netwrxk.png",
       "featured": true,
       "tags": ["Python", "Langgraph", "Langchain", "LlamaIndex", "Qdrant", "PostgreSQL", "Craw4ai"],
       "links": {
@@ -19,7 +19,7 @@
       "title": "Enrollment Assistant",
       "description": "A web app that helps students enroll in classes.",
       "category": "AI Systems",
-      "image": "./assets/images/enrollment.png",
+      "image": "../assets/images/enrollment.png",
       "featured": true,
       "tags": ["Python", "Deep Learning", "Polars"],
       "links": {
@@ -32,7 +32,7 @@
       "title": "Exa AI Visualizer",
       "description": "A web app that visualizes data from Exa Websets.",
       "category": "Data Science",
-      "image": "./assets/images/exaviz.png",
+      "image": "../assets/images/exaviz.png",
       "featured": true,
       "tags": ["Python", "D3.js", "Data Visualization", "Next.js", "Flask"],
       "links": {
@@ -45,7 +45,7 @@
       "title": "Portfolio Website",
       "description": "Personal website built from scratch with vibes.",
       "category": "Web Development",
-      "image": "./assets/images/portfolio.png",
+      "image": "../assets/images/portfolio.png",
       "featured": false,
       "tags": ["HTML", "CSS", "JavaScript"],
       "links": {
@@ -58,7 +58,7 @@
       "title": "Wine Recommender",
       "description": "Wine recommender system that uses content-based predictions to start up a collaborative filtering algorithm to provide new users with personalized wine recommendations.",
       "category": "Data Science",
-      "image": "./assets/images/wine_recommender_cover.jpg",
+      "image": "../assets/images/wine_recommender_cover.jpg",
       "featured": false,
       "tags": ["Python", "Pandas","XGBoost", "Recommender System", "Collaborative Filtering", "Content-based Filtering", "Machine Learning"],
       "links": {

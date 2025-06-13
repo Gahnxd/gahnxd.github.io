@@ -203,8 +203,14 @@ function updateAnimationState(direction, paused) {
 
 // Load data from JSON files
 function loadData() {
+    // Get the base URL for proper path resolution from any page
+    const baseUrl = window.location.pathname.includes('/projects/') || 
+                    window.location.pathname.includes('/about/') || 
+                    window.location.pathname.includes('/contact/') ? 
+                    '../' : '';
+    
     // Load projects data
-    fetch('assets/data/projects.json')
+    fetch(`${baseUrl}assets/data/projects.json`)
         .then(response => response.json())
         .then(data => {
             console.log('Projects data loaded:', data);
@@ -218,7 +224,7 @@ function loadData() {
         .catch(error => console.error('Error loading projects data:', error));
     
     // Load contact data
-    fetch('assets/data/contacts.json')
+    fetch(`${baseUrl}assets/data/contacts.json`)
         .then(response => response.json())
         .then(data => {
             console.log('Contact data loaded:', data);
