@@ -376,7 +376,7 @@ main {
     display: inline-block;
 }
 
-.highlight::after {
+/* .highlight::after {
     content: '';
     position: absolute;
     bottom: 5px;
@@ -386,7 +386,7 @@ main {
     background-color: var(--primary-light);
     z-index: -1;
     transition: var(--transition);
-}
+} */
 
 /* Buttons */
 .cta-buttons {
