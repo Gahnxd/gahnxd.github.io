@@ -49,8 +49,8 @@
       "featured": false,
       "tags": ["HTML", "CSS", "JavaScript"],
       "links": {
-        "demo": "#",
-        "github": ""
+        "demo": "../",
+        "github": "https://github.com/Gahnxd/gahnxd.github.io"
       }
     },
     {
