@@ -13,22 +13,25 @@ document.addEventListener('DOMContentLoaded', function() {
                       !window.location.pathname.endsWith('blogs/') && 
                       !window.location.pathname.endsWith('blogs/index.html');
     
-    // Add animation classes to section header
-    const sectionHeader = document.querySelector('.section-header');
-    if (sectionHeader) {
-        sectionHeader.querySelector('h2').classList.add('animate-slide-down');
-        const underline = sectionHeader.querySelector('.underline');
-        if (underline) {
-            underline.classList.add('animate-grow');
+    // Delay animations slightly to ensure elements are positioned correctly
+    setTimeout(() => {
+        // Add animation classes to section header
+        const sectionHeader = document.querySelector('.section-header');
+        if (sectionHeader) {
+            const heading = sectionHeader.querySelector('h2');
+            if (heading) heading.classList.add('animate-slide-down');
+            
+            const underline = sectionHeader.querySelector('.underline');
+            if (underline) underline.classList.add('animate-grow');
         }
-    }
-    
-    if (isBlogsIndex) {
-        loadBlogsList();
-    } else if (isBlogPage) {
-        const blogSlug = window.location.pathname.split('/').pop().replace('.html', '');
-        loadBlogContent(blogSlug);
-    }
+        
+        if (isBlogsIndex) {
+            loadBlogsList();
+        } else if (isBlogPage) {
+            const blogSlug = window.location.pathname.split('/').pop().replace('.html', '');
+            loadBlogContent(blogSlug);
+        }
+    }, 100); // Small delay to ensure proper positioning
 });
 
 /**
@@ -39,8 +42,7 @@ async function loadBlogsList() {
         const blogsGrid = document.querySelector('.blogs-links-grid');
         if (!blogsGrid) return;
         
-        // Add a loading indicator
-        blogsGrid.innerHTML = '<div class="loading-spinner"><div></div><div></div><div></div><div></div></div>';
+        // No loading indicator
         
         // Get list of MDX files with metadata
         const mdxFilesData = await fetchMdxFilesList();
@@ -105,8 +107,7 @@ async function loadBlogContent(slug) {
         
         if (!titleElement || !contentElement) return;
         
-        // Add loading animation
-        contentElement.innerHTML = '<div class="loading-spinner"><div></div><div></div><div></div><div></div></div>';
+        // No loading animation
         
         // Get metadata from index.json
         const mdxFilesData = await fetchMdxFilesList();

@@ -65,6 +65,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
+    // Function to check if element is in viewport
+    const isInViewport = (element) => {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.bottom >= 0
+        );
+    };
+    
     // Intersection Observer for reveal animations
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -73,12 +82,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 revealObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -10px 0px' });
     
-    // Observe all elements with reveal classes
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(element => {
-        revealObserver.observe(element);
-    });
+    // Observe all elements with reveal classes and trigger animations for visible elements
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    
+    // Add staggered delay to elements that are initially visible
+    setTimeout(() => {
+        revealElements.forEach((element, index) => {
+            if (isInViewport(element)) {
+                // Add staggered delay based on index
+                setTimeout(() => {
+                    element.classList.add('active');
+                }, index * 100);
+            } else {
+                revealObserver.observe(element);
+            }
+        });
+    }, 300); // Small initial delay to ensure page is fully rendered
     
     // Intersection Observer for skill bars
     const skillBars = document.querySelectorAll('.skill-progress');
@@ -95,9 +116,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.5 });
     
-    skillBars.forEach(bar => {
-        skillObserver.observe(bar);
-    });
+    // Add delay before animating skill bars
+    setTimeout(() => {
+        skillBars.forEach((bar, index) => {
+            if (isInViewport(bar)) {
+                const width = bar.getAttribute('style').split('width: ')[1].split('%')[0];
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width + '%';
+                }, 500 + (index * 100));
+            } else {
+                skillObserver.observe(bar);
+            }
+        });
+    }, 300);
     
     // Project cards staggered animation
     const projectCards = document.querySelectorAll('.project-card');
@@ -114,7 +146,14 @@ document.addEventListener('DOMContentLoaded', () => {
     
     projectCards.forEach(card => {
         card.classList.add('reveal');
-        cardObserver.observe(card);
+        // Check if project card is already in viewport
+        if (isInViewport(card)) {
+            setTimeout(() => {
+                card.classList.add('active');
+            }, 300);
+        } else {
+            cardObserver.observe(card);
+        }
     });
 });
 
