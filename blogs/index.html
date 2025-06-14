@@ -3,18 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Gahn W</title>
+    <title>Gahn W | Personal Website</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/projects.css">
+    <link rel="stylesheet" href="../assets/css/blogs.css">
 </head>
 <body>
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-
     <header>
         <div class="container">
             <nav>
@@ -27,28 +24,24 @@
                 <ul class="nav-links">
                     <li><a href="../">Home</a></li>
                     <li><a href="../about">About</a></li>
-                    <li><a href="../projects" class="active">Projects</a></li>
+                    <li><a href="../projects">Projects</a></li>
                     <li><a href="../contact">Contact</a></li>
-                    <li><a href="../blogs">Blogs</a></li>
+                    <li><a href="../blogs" class="active">Blogs</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="projects-section">
+        <section class="blogs-section">
             <div class="container">
                 <div class="section-header">
-                    <h2>My Projects</h2>
+                    <h2>My Blogs</h2>
                     <div class="underline"></div>
                 </div>
                 
-                <div class="project-filters">
-                    <!-- Button filters will be dynamically loaded from projects.json -->
-                </div>
-                
-                <div class="projects-grid">
-                    <!-- Projects will be dynamically loaded from projects.json -->
+                <div class="blogs-links-grid">
+                    <!-- Blogs will be dynamically loaded from blogs folder -->
                 </div>
             </div>
         </section>
@@ -73,35 +66,5 @@
     </footer>
 
     <script src="../assets/js/main.js"></script>
-    <script>
-        // Project filtering
-        document.addEventListener('DOMContentLoaded', () => {
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const projectCards = document.querySelectorAll('.project-card');
-            
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Update active button
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    
-                    const filter = btn.getAttribute('data-filter');
-                    
-                    // Filter projects
-                    projectCards.forEach(card => {
-                        card.classList.remove('show');
-                        card.classList.add('hide');
-                        
-                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                            setTimeout(() => {
-                                card.classList.remove('hide');
-                                card.classList.add('show');
-                            }, 100);
-                        }
-                    });
-                });
-            });
-        });
-    </script>
+    <script src="../assets/js/blogs.js"></script>
 </body>
-</html>
